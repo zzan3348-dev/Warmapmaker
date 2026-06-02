@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HΣΛTWΔRΞ 전략작전지도 v21</title>
+<title>HΣΛTWΔRΞ 전략작전지도 v24</title>
 <style>
   :root{--bg:#050505;--panel:#12080acc;--panel2:#1b0b0dcc;--red:#ff1f35;--red2:#9b000f;--white:#f5f1ed;--black:#050505;--text:#f5f1ed;--muted:#b9a5a5;--line:#6f141c;}
   *{box-sizing:border-box; user-select:none;} body{margin:0;overflow:hidden;background:radial-gradient(circle at 18% 8%, rgba(255,31,53,.20), transparent 28%),radial-gradient(circle at 86% 22%, rgba(245,241,237,.08), transparent 24%),linear-gradient(135deg,#030303 0%,#160609 55%,#050505 100%);color:var(--text);font-family:'Segoe UI',Pretendard,Arial,sans-serif;} body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;}
   .app{height:100vh;display:flex;flex-direction:column;} header{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid rgba(255,31,53,.42);background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(35,6,9,.9));box-shadow:none;z-index:5}.brand{display:flex;flex-direction:column;gap:2px;letter-spacing:.08em}.brand .main{font-size:24px;font-weight:900;color:var(--red);text-shadow:2px 0 rgba(245,241,237,.22)}.brand .sub{font-size:11px;color:var(--muted);letter-spacing:.35em}.planet-tabs{display:flex;gap:8px}
   button,.file-label,select,input[type="text"],input[type="number"],input[type="range"],input[type="color"]{border:1px solid rgba(255,31,53,.50);background:rgba(5,5,5,.9);color:var(--text);height:36px;padding:0 12px;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);box-shadow:inset 0 0 12px rgba(255,31,53,.09)}button{cursor:pointer}button.active{color:var(--white);background:linear-gradient(135deg,var(--red),var(--red2));font-weight:900}.icon-btn{min-width:auto;font-size:14px;font-weight:900;line-height:1;padding:0 12px;display:inline-flex;align-items:center;gap:5px}.icon-btn .label{position:static;left:auto;font-size:12px;letter-spacing:.02em}.icon-btn small{display:block;font-size:9px;line-height:1;margin-top:-2px;letter-spacing:.02em;color:inherit}.toolbar{min-height:58px;display:flex;align-items:center;gap:10px;padding:8px 18px;flex-wrap:wrap;border-bottom:1px solid rgba(255,31,53,.22);background:rgba(5,5,5,.74);backdrop-filter:blur(8px);z-index:4}.tool{display:flex;align-items:center;gap:8px}.file-label{display:inline-flex;align-items:center;cursor:pointer;font-weight:800;color:var(--red)}#fileInput{display:none}.spacer{flex:1}.status{font-size:12px;color:var(--muted);white-space:nowrap}main{position:relative;flex:1;overflow:hidden}#stage{position:absolute;inset:0;cursor:grab}#stage.drawing{cursor:crosshair}canvas{position:absolute;inset:0;width:100%;height:100%}.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}.empty-card{width:min(720px,86vw);border:1px solid rgba(255,31,53,.42);background:linear-gradient(135deg,rgba(35,6,9,.84),rgba(5,5,5,.66));box-shadow:0 0 50px rgba(255,31,53,.13),inset 0 0 24px rgba(255,31,53,.08);padding:34px;clip-path:polygon(22px 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%,0 22px);text-align:center}.empty-card h1{margin:0 0 10px;color:var(--red);font-size:30px}.empty-card p{margin:6px 0;color:#f5f1ed}.hint{position:absolute;left:16px;bottom:14px;font-size:12px;color:var(--muted);background:rgba(5,5,5,.75);border:1px solid rgba(255,31,53,.22);padding:8px 10px}.side{position:absolute;right:14px;top:14px;width:310px;transition:transform .18s ease,opacity .18s ease;max-height:calc(100% - 28px);overflow:auto;padding:14px;border:1px solid rgba(255,31,53,.45);background:linear-gradient(135deg,rgba(5,5,5,.88),rgba(32,7,10,.86));box-shadow:0 0 30px rgba(255,31,53,.15);clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);z-index:3}.side.closed{transform:translateX(calc(100% + 24px));opacity:.08;pointer-events:none}.side h2{font-size:16px;margin:0 0 10px;color:var(--red);letter-spacing:.16em}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.side label{font-size:11px;color:var(--muted);display:block;margin:8px 0 4px}.side input,.side select{width:100%}.unit-list{margin-top:12px;display:flex;flex-direction:column;gap:8px}.unit-card{border:1px solid rgba(255,31,53,.38);background:rgba(0,0,0,.62);padding:9px 42px 9px 10px;font-size:12px;position:relative;cursor:pointer;clip-path:none;box-shadow:none}.unit-card:hover,.unit-card.selected{border-color:var(--white);background:rgba(45,7,11,.82)}.unit-card b{color:var(--white);font-size:13px}.unit-card span{color:var(--muted);line-height:1.45}.unit-card .x{position:absolute;right:8px;top:8px;height:28px;min-width:28px;padding:0;border:1px solid rgba(255,31,53,.8);background:#160609;color:var(--red);clip-path:none;font-size:18px;line-height:1}.unit-card .x:hover{background:var(--red);color:#fff}.shape-help{font-size:11px;color:var(--muted);line-height:1.55;margin:8px 0;border-left:2px solid var(--red);padding-left:8px}.mini{height:30px;font-size:12px;padding:0 8px}.branch-palette{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 10px}.branch-palette button{height:34px;font-size:12px;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.branch-palette button.armed{background:linear-gradient(135deg,var(--red),var(--red2));font-weight:900}.branch-palette button.blocked{opacity:.42}.custom-branch-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin:8px 0}.custom-branch-row input{height:30px;font-size:12px}.custom-branch-row button{height:30px;white-space:nowrap}.disabled-option{opacity:.45}.toast{position:absolute;top:86px;left:50%;transform:translateX(-50%);background:#050505;border:1px solid var(--red);color:var(--white);padding:10px 16px;box-shadow:0 0 22px rgba(255,31,53,.28);z-index:20;display:none}.toast.show{display:block}
-  .brush-panel{position:absolute;left:300px;top:134px;z-index:8;display:none;gap:12px;align-items:center;padding:10px 12px;border:1px solid rgba(255,31,53,.55);background:linear-gradient(135deg,rgba(5,5,5,.94),rgba(35,6,9,.92));box-shadow:0 0 24px rgba(255,31,53,.18);clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}.brush-panel.open{display:flex}.brush-panel label{font-size:11px;color:var(--muted);letter-spacing:.12em}.brush-panel .panel-title{font-size:12px;font-weight:900;color:var(--red);letter-spacing:.16em}.brush-panel input[type="range"]{width:150px}.brush-panel .color-wrap{display:flex;align-items:center;gap:8px}.brush-panel.eraser .color-wrap{display:none}.brush-panel .width-value{min-width:34px;text-align:right;font-size:12px;color:var(--white)}
+  .brush-panel{position:absolute;left:300px;top:134px;z-index:8;display:none;gap:12px;align-items:center;padding:10px 12px;border:1px solid rgba(255,31,53,.55);background:linear-gradient(135deg,rgba(5,5,5,.94),rgba(35,6,9,.92));box-shadow:0 0 24px rgba(255,31,53,.18);clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}.brush-panel.open{display:flex}.brush-panel label{font-size:11px;color:var(--muted);letter-spacing:.12em}.brush-panel .panel-title{font-size:12px;font-weight:900;color:var(--red);letter-spacing:.16em}.brush-panel input[type="range"]{width:150px}.brush-panel .color-wrap{display:flex;align-items:center;gap:8px}.brush-panel.eraser .color-wrap{display:none}.brush-panel .width-value{min-width:34px;text-align:right;font-size:12px;color:var(--white)}.arrow-label-tools{display:none;align-items:center;gap:8px;border-left:1px solid rgba(255,31,53,.36);padding-left:10px}.brush-panel.arrow-mode .arrow-label-tools{display:flex}.arrow-label-tools input{height:30px;width:190px;clip-path:none}.arrow-label-tools button{height:30px;padding:0 8px;font-size:12px;clip-path:none}
 
 .arrow-help{font-size:11px;color:var(--muted);line-height:1.45;margin-left:6px}
 
@@ -100,6 +100,8 @@
     padding:9px;
   }
   .brush-panel input[type="range"]{width:120px;}
+  .arrow-label-tools{width:100%;border-left:0;border-top:1px solid rgba(255,31,53,.36);padding:8px 0 0 0;flex-wrap:wrap;}
+  .arrow-label-tools input{flex:1;min-width:160px;}
   .side{
     position:fixed;
     left:0;
@@ -144,14 +146,17 @@
 </head>
 <body>
 <div class="app"><header><div class="brand"><div class="main">HΣΛTWΔRΞ</div><div class="sub">전략작전지도 시스템</div></div><div class="planet-tabs"><button class="active" data-planet="EARTH">지구</button><button data-planet="MARS">화성</button><button data-planet="LUNA">달</button></div></header>
-<div class="toolbar"><button id="loadPresetBtn" class="file-label" type="button">🗺 HΣΛTWΔRΞ 지도</button><label class="file-label" for="fileInput">📂 지도 업로드</label><input id="fileInput" type="file" accept="image/*" /><div class="tool"><button id="panBtn" class="active">✋ 이동</button><button id="drawBtn" class="icon-btn" title="그리기"><span aria-hidden="true">✎</span><span class="label">그리기</span></button><button id="eraseBtn" class="icon-btn" title="지우개"><span aria-hidden="true">⌫</span><span class="label">지우개</span></button><button id="arrowBtn" class="icon-btn" title="작전 화살표"><span aria-hidden="true">➤</span><span class="label">작전화살표</span></button><button id="forceBtn">⚔ 부대 관리 ▼</button></div><div class="tool"><button id="undoBtn">↶ 되돌리기</button><button id="clearBtn">🗑 작전초기화</button><button id="clearUnitsBtn" style="display:none">부대 초기화</button><button id="resetViewBtn">◎ 화면맞춤</button><button id="saveBtn">💾 이미지저장</button></div><div class="spacer"></div><div class="status" id="status">지도 없음 / 배율 100% / 행성 지구</div></div><div id="brushPanel" class="brush-panel"><span id="brushTitle" class="panel-title">그리기 설정</span><div class="color-wrap"><label>색상</label><input id="colorPicker" type="color" value="#ff1f35" /></div><label id="widthLabel">굵기</label><input id="sizePicker" type="range" min="1" max="40" value="5" /><span id="widthValue" class="width-value">5</span></div>
+<div class="toolbar"><button id="loadPresetBtn" class="file-label" type="button">🗺 HΣΛTWΔRΞ 지도</button><label class="file-label" for="fileInput">📂 지도 업로드</label><input id="fileInput" type="file" accept="image/*" /><div class="tool"><button id="panBtn" class="active">✋ 이동</button><button id="drawBtn" class="icon-btn" title="그리기"><span aria-hidden="true">✎</span><span class="label">그리기</span></button><button id="eraseBtn" class="icon-btn" title="지우개"><span aria-hidden="true">⌫</span><span class="label">지우개</span></button><button id="arrowBtn" class="icon-btn" title="작전 화살표"><span aria-hidden="true">➤</span><span class="label">작전화살표</span></button><button id="forceBtn">⚔ 부대 관리 ▼</button></div><div class="tool"><button id="undoBtn">↶ 되돌리기</button><button id="clearBtn">🗑 작전초기화</button><button id="clearUnitsBtn" style="display:none">부대 초기화</button><button id="resetViewBtn">◎ 화면맞춤</button><button id="saveBtn">💾 이미지저장</button></div><div class="spacer"></div><div class="status" id="status">지도 없음 / 배율 100% / 행성 지구</div></div><div id="brushPanel" class="brush-panel"><span id="brushTitle" class="panel-title">그리기 설정</span><div class="color-wrap"><label>색상</label><input id="colorPicker" type="color" value="#ff1f35" /></div><label id="widthLabel">굵기</label><input id="sizePicker" type="range" min="1" max="40" value="5" /><span id="widthValue" class="width-value">5</span><div id="arrowLabelTools" class="arrow-label-tools"><label>글씨</label><input id="arrowLabelInput" type="text" placeholder="작전명/메모 입력"><button id="applyArrowLabelBtn" type="button">적용</button><button id="clearArrowLabelBtn" type="button">글씨 지우기</button><button id="deleteArrowBtn" type="button">화살표 삭제</button></div></div>
 <main><div id="stage"><canvas id="mapCanvas"></canvas><canvas id="drawCanvas"></canvas><canvas id="unitCanvas"></canvas></div><aside class="side" id="forcesPanel"><h2>⚔ 부대 관리</h2><div class="grid"><div><label>부대명</label><input id="unitName" type="text" value="제1군단"></div><div><label>병력</label><input id="unitSize" type="text" value="32000"></div></div><label>병과 선택/배치</label><select id="branchSelect"></select><div id="branchPalette" class="branch-palette"></div><div class="grid"><div><label>마커색</label><input id="unitColor" type="color" value="#ff1f35"></div><div><label>세력/소속</label><input id="unitFaction" type="text" value="HΣΛTWΔRΞ"></div></div><div class="custom-branch-row"><input id="customBranchName" type="text" placeholder="커스텀 병과 이름 입력"><button id="addBranchBtn" class="mini" type="button">+ 병과 추가</button></div><div class="grid"><button id="cancelPlaceBtn" class="mini" type="button">배치 취소</button><button id="armSelectedBranchBtn" class="mini" type="button">선택 병과 배치</button></div><div id="placingNote" class="placing-note">병과 버튼을 누르면 계속 배치됩니다. 기존 부대 클릭은 선택만 됩니다.</div><p style="font-size:12px;color:var(--muted);line-height:1.5">병과 버튼 클릭 → 지도 빈 곳에 연속 배치<br>마커 드래그 이동 / 목록 X 또는 우클릭으로 삭제</p><div class="shape-help">마커 형태: 육군계열 □ / 해군 ⬡ / 공군 △ / 우주군 ◎ / 특수부대 ◆</div><button id="updateUnitBtn" style="width:100%;">선택 부대 수정</button><div class="unit-list" id="unitList"></div></aside><div class="empty" id="empty"><div class="empty-card"><h1>HΣΛTWΔRΞ 전략작전지도</h1><p><b>HΣΛTWΔRΞ 지도</b> 버튼을 누르면 선택한 행성의 기본 지도를 불러옵니다.</p><p><b>지도 업로드</b> 버튼을 누르면 사용자 지정 지도를 사용할 수 있습니다.</p><p>부대 배치, 작전화살표, 드로잉 기능으로 자신만의 작전지도를 작성하십시오.</p></div></div><div class="hint">휠: 확대/축소 / 이동: 지도 드래그 / ➤: 드래그로 작전화살표 생성 / 조절점 드래그 / 우클릭 삭제</div><div class="toast" id="toast">해당 행성에서는 사용할 수 없습니다</div></main></div>
 <script>
 (()=>{
 const $=id=>document.getElementById(id); const mapCanvas=$('mapCanvas'),drawCanvas=$('drawCanvas'),unitCanvas=$('unitCanvas'); const mapCtx=mapCanvas.getContext('2d'),drawCtx=drawCanvas.getContext('2d'),unitCtx=unitCanvas.getContext('2d'); const stage=$('stage'),fileInput=$('fileInput'),empty=$('empty'),status=$('status'),toast=$('toast');
-const panBtn=$('panBtn'),drawBtn=$('drawBtn'),eraseBtn=$('eraseBtn'),arrowBtn=$('arrowBtn'),forceBtn=$('forceBtn'),colorPicker=$('colorPicker'),sizePicker=$('sizePicker'),brushPanel=$('brushPanel'),brushTitle=$('brushTitle'),widthLabel=$('widthLabel'),widthValue=$('widthValue'),forcesPanel=$('forcesPanel'); const unitName=$('unitName'),unitSize=$('unitSize'),branchSelect=$('branchSelect'),branchPalette=$('branchPalette'),unitColor=$('unitColor'),unitFaction=$('unitFaction'),unitList=$('unitList'),placingNote=$('placingNote'); const planetButtons=document.querySelectorAll('.planet-tabs button');
+const panBtn=$('panBtn'),drawBtn=$('drawBtn'),eraseBtn=$('eraseBtn'),arrowBtn=$('arrowBtn'),forceBtn=$('forceBtn'),colorPicker=$('colorPicker'),sizePicker=$('sizePicker'),brushPanel=$('brushPanel'),brushTitle=$('brushTitle'),widthLabel=$('widthLabel'),widthValue=$('widthValue'),forcesPanel=$('forcesPanel'),arrowLabelInput=$('arrowLabelInput'),applyArrowLabelBtn=$('applyArrowLabelBtn'),clearArrowLabelBtn=$('clearArrowLabelBtn'),deleteArrowBtn=$('deleteArrowBtn'); const unitName=$('unitName'),unitSize=$('unitSize'),branchSelect=$('branchSelect'),branchPalette=$('branchPalette'),unitColor=$('unitColor'),unitFaction=$('unitFaction'),unitList=$('unitList'),placingNote=$('placingNote'); const planetButtons=document.querySelectorAll('.planet-tabs button');
 const MAP_FILES={EARTH:'maps/earth.png',MARS:'maps/mars.png',LUNA:'maps/luna.png'};
 let img=null,planet='EARTH',mode='pan',scale=1,offsetX=0,offsetY=0,isPanning=false,isDrawing=false,isCreatingArrow=false,lastX=0,lastY=0,panStartX=0,panStartY=0,savedStrokes=[],arrows=[],tempArrow=null,selectedArrowId=null,draggingArrowHandle=null,draggingArrowBody=null,arrowDragLast=null,units=[],selectedUnitId=null,armedBranch=null,draggingUnitId=null,dragMoved=false,forcesOpen=true;
+// 모바일 핀치 줌/터치 이동 상태
+const activeTouches=new Map();
+let isPinching=false,pinchStartDist=0,pinchStartScale=1,pinchCenterStart={x:0,y:0},pinchMapAnchor={x:0,y:0};
 let branches=['보병','기갑','포병','공군','우주군','해군','특수부대(해병대)','공병','정찰','방공','보급/군수','지휘부']; const blocked={MARS:['공군','해군'],LUNA:['공군','해군']};
 function planetName(p){return ({EARTH:'지구',MARS:'화성',LUNA:'달'}[p]||p)}
 function modeName(m){return ({pan:'이동',draw:'그리기',erase:'지우개',arrow:'작전화살표',force:'부대배치'}[m]||m)}
@@ -167,6 +172,7 @@ function updateBrushPanel(){
   const open=mode==='draw'||mode==='erase'||arrowPanel;
   brushPanel.classList.toggle('open',open);
   brushPanel.classList.toggle('eraser',mode==='erase');
+  brushPanel.classList.toggle('arrow-mode',arrowPanel);
   if(mode==='draw'){
     brushTitle.textContent='그리기 설정';
     widthLabel.textContent='굵기';
@@ -187,6 +193,11 @@ function updateBrushPanel(){
     if(Number(sizePicker.value)<8) sizePicker.value='28';
   }
   widthValue.textContent=sizePicker.value;
+  if(arrowLabelInput){
+    const a=getSelectedArrow();
+    arrowLabelInput.value=a?(a.label||''):arrowLabelInput.value;
+    arrowLabelInput.placeholder=a?'선택 화살표 글씨':'새 화살표 글씨';
+  }
 }
 
 function updateForcesButton(){forceBtn.classList.toggle('active',forcesOpen);forceBtn.textContent=forcesOpen?'⚔ 부대 관리 ▲':'⚔ 부대 관리 ▼';forcesPanel.classList.toggle('closed',!forcesOpen)}
@@ -321,7 +332,7 @@ function hitArrow(pos){
   return null;
 }
 function deleteArrow(id){ const idx=arrows.findIndex(a=>a.id===id); if(idx<0)return false; arrows.splice(idx,1); if(selectedArrowId===id)selectedArrowId=null; redrawStrokes(); return true; }
-function finishArrow(){ if(!tempArrow)return; const dx=tempArrow.end.x-tempArrow.start.x, dy=tempArrow.end.y-tempArrow.start.y; if(Math.hypot(dx,dy)<8){tempArrow=null;redrawStrokes();return;} const label=prompt('화살표 옆에 표시할 작전명/메모를 입력하세요. 빈칸이면 라벨 없이 생성됩니다.',''); tempArrow.label=(label||'').trim(); arrows.push(tempArrow); selectedArrowId=tempArrow.id; tempArrow=null; syncArrowControlsFromSelection(); redrawStrokes(); }
+function finishArrow(){ if(!tempArrow)return; const dx=tempArrow.end.x-tempArrow.start.x, dy=tempArrow.end.y-tempArrow.start.y; if(Math.hypot(dx,dy)<8){tempArrow=null;redrawStrokes();return;} tempArrow.label=(arrowLabelInput&&arrowLabelInput.value?arrowLabelInput.value:'').trim(); arrows.push(tempArrow); selectedArrowId=tempArrow.id; tempArrow=null; syncArrowControlsFromSelection(); redrawStrokes(); showToast('화살표 생성 완료'); }
 
 function branchGroup(branch){
   if(branch==='해군')return 'navy';
@@ -485,6 +496,39 @@ function armBranch(b){if(!isBranchAllowed(b)){showToast();return;}armedBranch=b;
 function loadMapFromUrl(url){const next=new Image();next.onload=()=>{img=next;empty.style.display='none';savedStrokes=[];arrows=[];tempArrow=null;selectedArrowId=null;units=[];selectedUnitId=null;drawCtx.clearRect(0,0,drawCanvas.width,drawCanvas.height);fitImage();rerenderAll()};next.onerror=()=>alert(`지도 파일을 못 불러왔습니다.\n경로 확인: ${url}`);next.src=url}
 $('loadPresetBtn').onclick=()=>loadMapFromUrl(MAP_FILES[planet]); fileInput.onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const n=new Image();n.onload=()=>{img=n;empty.style.display='none';savedStrokes=[];arrows=[];tempArrow=null;selectedArrowId=null;units=[];selectedUnitId=null;fitImage();rerenderAll()};n.src=ev.target.result};r.readAsDataURL(f)};
 stage.addEventListener('wheel',e=>{e.preventDefault();if(!img)return;const pos=getPos(e),before=screenToMap(pos.x,pos.y),z=e.deltaY<0?1.12:.89;scale=Math.max(.05,Math.min(12,scale*z));offsetX=pos.x-before.x*scale;offsetY=pos.y-before.y*scale;rerenderAll()},{passive:false});
+function pointerPosFromEvent(e){const r=unitCanvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+function getTwoTouchPoints(){return Array.from(activeTouches.values()).slice(0,2);}
+function distance2(a,b){return Math.hypot(a.x-b.x,a.y-b.y)||1;}
+function midpoint2(a,b){return{x:(a.x+b.x)/2,y:(a.y+b.y)/2};}
+function beginPinchZoom(){
+  const pts=getTwoTouchPoints();
+  if(pts.length<2||!img)return;
+  isPinching=true;
+  // 기존 단일 터치 동작을 모두 중단해야 화살표/부대 드래그와 충돌하지 않음
+  isPanning=false; isDrawing=false; isCreatingArrow=false; tempArrow=null;
+  draggingUnitId=null; draggingArrowHandle=null; draggingArrowBody=null; arrowDragLast=null;
+  pinchStartDist=distance2(pts[0],pts[1]);
+  pinchStartScale=scale;
+  pinchCenterStart=midpoint2(pts[0],pts[1]);
+  pinchMapAnchor=screenToMap(pinchCenterStart.x,pinchCenterStart.y);
+}
+function updatePinchZoom(){
+  const pts=getTwoTouchPoints();
+  if(pts.length<2||!img)return;
+  const center=midpoint2(pts[0],pts[1]);
+  const dist=distance2(pts[0],pts[1]);
+  const factor=dist/(pinchStartDist||dist||1);
+  scale=Math.max(.05,Math.min(12,pinchStartScale*factor));
+  offsetX=center.x-pinchMapAnchor.x*scale;
+  offsetY=center.y-pinchMapAnchor.y*scale;
+  rerenderAll();
+}
+function endPinchIfNeeded(){
+  if(activeTouches.size<2){
+    isPinching=false;
+    pinchStartDist=0;
+  }
+}
 function placeUnitAt(pos){
   if(!img){alert('먼저 지도를 불러오세요.');return;}
   const hit=hitUnit(pos);
@@ -601,6 +645,133 @@ window.addEventListener('mouseup',()=>{
   stage.style.cursor=mode==='pan'?'grab':(mode==='force'||mode==='arrow'?'crosshair':'crosshair');
   if(wasDragging)renderUnitList()
 });
+
+function handleStagePointerDown(e){
+  if(e.pointerType==='mouse')return;
+  if(!img)return;
+  e.preventDefault();
+  const pos=pointerPosFromEvent(e);
+  activeTouches.set(e.pointerId,pos);
+  try{stage.setPointerCapture(e.pointerId)}catch(_){}
+  if(activeTouches.size>=2){
+    beginPinchZoom();
+    return;
+  }
+  if(isPinching)return;
+  dragMoved=false;
+
+  if(mode!=='draw' && mode!=='erase' && !(armedBranch||mode==='force')){
+    const hh=hitArrowHandle(pos);
+    if(hh){
+      selectArrow(hh.arrow);
+      draggingArrowHandle=hh;
+      stage.style.cursor='grabbing';
+      return;
+    }
+    const ha=hitArrow(pos);
+    if(ha){
+      selectArrow(ha);
+      draggingArrowBody=ha;
+      arrowDragLast=screenToMap(pos.x,pos.y);
+      stage.style.cursor='grabbing';
+      redrawStrokes(); redrawUnits();
+      return;
+    }
+  }
+
+  if(mode==='arrow'){
+    const mp=screenToMap(pos.x,pos.y);
+    tempArrow={id:String(Date.now())+'_'+Math.random().toString(16).slice(2),start:mp,ctrl:{x:mp.x,y:mp.y},end:{x:mp.x,y:mp.y},color:colorPicker.value,width:Number(sizePicker.value)||28,label:''};
+    isCreatingArrow=true;
+    selectedArrowId=null;
+    updateBrushPanel();
+    redrawStrokes();
+    return;
+  }
+
+  const hit=hitUnit(pos);
+  if(hit && mode!=='draw' && mode!=='erase'){
+    selectUnit(hit.id);
+    selectedArrowId=null;
+    updateBrushPanel();
+    draggingUnitId=hit.id;
+    stage.style.cursor='grabbing';
+    redrawStrokes();
+    return;
+  }
+  if(armedBranch||mode==='force'){placeUnitAt(pos);return;}
+  if(mode==='pan'){
+    selectedArrowId=null;
+    updateBrushPanel();
+    redrawStrokes();
+    isPanning=true;panStartX=pos.x-offsetX;panStartY=pos.y-offsetY;stage.style.cursor='grabbing';
+  }else{
+    isDrawing=true;const mp=screenToMap(pos.x,pos.y);savedStrokes.push({color:colorPicker.value,size:Number(sizePicker.value),erase:mode==='erase',points:[mp]});lastX=pos.x;lastY=pos.y;
+  }
+}
+
+function handleStagePointerMove(e){
+  if(e.pointerType==='mouse')return;
+  e.preventDefault();
+  const pos=pointerPosFromEvent(e);
+  if(activeTouches.has(e.pointerId)) activeTouches.set(e.pointerId,pos);
+  if(isPinching||activeTouches.size>=2){
+    if(!isPinching) beginPinchZoom();
+    updatePinchZoom();
+    return;
+  }
+  if(draggingArrowHandle){
+    const mp=screenToMap(pos.x,pos.y);
+    draggingArrowHandle.arrow[draggingArrowHandle.handle]=mp;
+    redrawStrokes();
+    return;
+  }
+  if(draggingArrowBody && arrowDragLast){
+    const mp=screenToMap(pos.x,pos.y);
+    const dx=mp.x-arrowDragLast.x, dy=mp.y-arrowDragLast.y;
+    draggingArrowBody.start.x+=dx; draggingArrowBody.start.y+=dy;
+    draggingArrowBody.ctrl.x+=dx; draggingArrowBody.ctrl.y+=dy;
+    draggingArrowBody.end.x+=dx; draggingArrowBody.end.y+=dy;
+    arrowDragLast=mp;
+    redrawStrokes();
+    return;
+  }
+  if(isCreatingArrow&&tempArrow){
+    const mp=screenToMap(pos.x,pos.y);tempArrow.end=mp;
+    const mid={x:(tempArrow.start.x+mp.x)/2,y:(tempArrow.start.y+mp.y)/2};const dx=mp.x-tempArrow.start.x,dy=mp.y-tempArrow.start.y;const bend=.18;
+    tempArrow.ctrl={x:mid.x-dy*bend,y:mid.y+dx*bend};
+    redrawStrokes();return;
+  }
+  if(draggingUnitId){const u=units.find(x=>x.id===draggingUnitId);if(u){const mp=screenToMap(pos.x,pos.y);u.x=mp.x;u.y=mp.y;dragMoved=true;redrawUnits();}return;}
+  if(isPanning){offsetX=pos.x-panStartX;offsetY=pos.y-panStartY;rerenderAll()}
+  if(isDrawing){const s=savedStrokes[savedStrokes.length-1],mp=screenToMap(pos.x,pos.y);s.points.push(mp);drawCtx.save();drawCtx.lineCap='round';drawCtx.lineJoin='round';drawCtx.lineWidth=s.size;if(s.erase){drawCtx.globalCompositeOperation='destination-out';drawCtx.strokeStyle='#000'}else{drawCtx.globalCompositeOperation='source-over';drawCtx.strokeStyle=s.color;drawCtx.shadowColor=s.color;drawCtx.shadowBlur=8}drawCtx.beginPath();drawCtx.moveTo(lastX,lastY);drawCtx.lineTo(pos.x,pos.y);drawCtx.stroke();drawCtx.restore();lastX=pos.x;lastY=pos.y}
+}
+
+function handleStagePointerUp(e){
+  if(e.pointerType==='mouse')return;
+  e.preventDefault();
+  const wasPinching=isPinching;
+  activeTouches.delete(e.pointerId);
+  endPinchIfNeeded();
+  try{stage.releasePointerCapture(e.pointerId)}catch(_){}
+  if(wasPinching){
+    // 핀치 직후 남은 한 손가락이 바로 그리기/화살표로 이어지지 않게 끊음
+    draggingArrowHandle=null; draggingArrowBody=null; arrowDragLast=null; draggingUnitId=null;
+    isPanning=false; isDrawing=false; isCreatingArrow=false; tempArrow=null;
+    redrawStrokes();
+    return;
+  }
+  const wasDragging=!!draggingUnitId;
+  if(isCreatingArrow){isCreatingArrow=false;finishArrow();}
+  draggingArrowHandle=null; draggingArrowBody=null; arrowDragLast=null; draggingUnitId=null;
+  isPanning=false;isDrawing=false;
+  stage.style.cursor=mode==='pan'?'grab':(mode==='force'||mode==='arrow'?'crosshair':'crosshair');
+  if(wasDragging)renderUnitList();
+}
+stage.addEventListener('pointerdown',handleStagePointerDown,{passive:false});
+stage.addEventListener('pointermove',handleStagePointerMove,{passive:false});
+stage.addEventListener('pointerup',handleStagePointerUp,{passive:false});
+stage.addEventListener('pointercancel',handleStagePointerUp,{passive:false});
 document.addEventListener('contextmenu',e=>e.preventDefault()); window.addEventListener('resize',resize);
 panBtn.onclick=()=>{cancelPlacement();setMode('pan')};drawBtn.onclick=()=>{cancelPlacement();setMode('draw')};eraseBtn.onclick=()=>{cancelPlacement();setMode('erase')};arrowBtn.onclick=()=>{cancelPlacement();setMode('arrow')};forceBtn.onclick=()=>toggleForcesPanel();$('undoBtn').onclick=()=>{ if(selectedArrowId){deleteArrow(selectedArrowId);} else if(arrows.length){arrows.pop();redrawStrokes();} else {savedStrokes.pop();redrawStrokes();} };
 function clearOperation(ev){
@@ -689,6 +860,22 @@ if(armSelectedBranchButton){
 }
 branchSelect.addEventListener('change',()=>{ if(isBranchAllowed(branchSelect.value)) armedBranch=branchSelect.value; refreshBranches(); });
 branchSelect.addEventListener('mousedown',()=>{if((planet==='MARS'||planet==='LUNA')) showToast('화성/달에서는 해군과 공군을 선택할 수 없습니다')});
+
+function applyArrowLabel(){
+  const a=getSelectedArrow();
+  if(!a){showToast('수정할 화살표를 먼저 선택하세요');return;}
+  a.label=(arrowLabelInput&&arrowLabelInput.value?arrowLabelInput.value:'').trim();
+  redrawStrokes();
+}
+if(arrowLabelInput){
+  arrowLabelInput.addEventListener('pointerdown',e=>e.stopPropagation(),true);
+  arrowLabelInput.addEventListener('mousedown',e=>e.stopPropagation(),true);
+  arrowLabelInput.addEventListener('input',()=>{ const a=getSelectedArrow(); if(a){a.label=arrowLabelInput.value.trim(); redrawStrokes();} });
+  arrowLabelInput.addEventListener('keydown',e=>{ if(e.key==='Enter') applyArrowLabel(); });
+}
+if(applyArrowLabelBtn) applyArrowLabelBtn.addEventListener('click',applyArrowLabel);
+if(clearArrowLabelBtn) clearArrowLabelBtn.addEventListener('click',()=>{ const a=getSelectedArrow(); if(!a){ if(arrowLabelInput)arrowLabelInput.value=''; return;} a.label=''; if(arrowLabelInput)arrowLabelInput.value=''; redrawStrokes(); });
+if(deleteArrowBtn) deleteArrowBtn.addEventListener('click',()=>{ const a=getSelectedArrow(); if(!a){showToast('삭제할 화살표를 먼저 선택하세요');return;} deleteArrow(a.id); updateBrushPanel(); });
 
 sizePicker.addEventListener('input',()=>{
   widthValue.textContent=sizePicker.value;
