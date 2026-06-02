@@ -9,7 +9,7 @@
   *{box-sizing:border-box; user-select:none;} body{margin:0;overflow:hidden;background:radial-gradient(circle at 18% 8%, rgba(255,31,53,.20), transparent 28%),radial-gradient(circle at 86% 22%, rgba(245,241,237,.08), transparent 24%),linear-gradient(135deg,#030303 0%,#160609 55%,#050505 100%);color:var(--text);font-family:'Segoe UI',Pretendard,Arial,sans-serif;} body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;}
   .app{height:100vh;display:flex;flex-direction:column;} header{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid rgba(255,31,53,.42);background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(35,6,9,.9));box-shadow:none;z-index:5}.brand{display:flex;flex-direction:column;gap:2px;letter-spacing:.08em}.brand .main{font-size:24px;font-weight:900;color:var(--red);text-shadow:2px 0 rgba(245,241,237,.22)}.brand .sub{font-size:11px;color:var(--muted);letter-spacing:.35em}.planet-tabs{display:flex;gap:8px}
   button,.file-label,select,input[type="text"],input[type="number"],input[type="range"],input[type="color"]{border:1px solid rgba(255,31,53,.50);background:rgba(5,5,5,.9);color:var(--text);height:36px;padding:0 12px;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);box-shadow:inset 0 0 12px rgba(255,31,53,.09)}button{cursor:pointer}button.active{color:var(--white);background:linear-gradient(135deg,var(--red),var(--red2));font-weight:900}.icon-btn{min-width:auto;font-size:14px;font-weight:900;line-height:1;padding:0 12px;display:inline-flex;align-items:center;gap:5px}.icon-btn .label{position:static;left:auto;font-size:12px;letter-spacing:.02em}.icon-btn small{display:block;font-size:9px;line-height:1;margin-top:-2px;letter-spacing:.02em;color:inherit}.toolbar{min-height:58px;display:flex;align-items:center;gap:10px;padding:8px 18px;flex-wrap:wrap;border-bottom:1px solid rgba(255,31,53,.22);background:rgba(5,5,5,.74);backdrop-filter:blur(8px);z-index:4}.tool{display:flex;align-items:center;gap:8px}.file-label{display:inline-flex;align-items:center;cursor:pointer;font-weight:800;color:var(--red)}#fileInput{display:none}.spacer{flex:1}.status{font-size:12px;color:var(--muted);white-space:nowrap}main{position:relative;flex:1;overflow:hidden}#stage{position:absolute;inset:0;cursor:grab}#stage.drawing{cursor:crosshair}canvas{position:absolute;inset:0;width:100%;height:100%}.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}.empty-card{width:min(720px,86vw);border:1px solid rgba(255,31,53,.42);background:linear-gradient(135deg,rgba(35,6,9,.84),rgba(5,5,5,.66));box-shadow:0 0 50px rgba(255,31,53,.13),inset 0 0 24px rgba(255,31,53,.08);padding:34px;clip-path:polygon(22px 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%,0 22px);text-align:center}.empty-card h1{margin:0 0 10px;color:var(--red);font-size:30px}.empty-card p{margin:6px 0;color:#f5f1ed}.hint{position:absolute;left:16px;bottom:14px;font-size:12px;color:var(--muted);background:rgba(5,5,5,.75);border:1px solid rgba(255,31,53,.22);padding:8px 10px}.side{position:absolute;right:14px;top:14px;width:310px;transition:transform .18s ease,opacity .18s ease;max-height:calc(100% - 28px);overflow:auto;padding:14px;border:1px solid rgba(255,31,53,.45);background:linear-gradient(135deg,rgba(5,5,5,.88),rgba(32,7,10,.86));box-shadow:0 0 30px rgba(255,31,53,.15);clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);z-index:3}.side.closed{transform:translateX(calc(100% + 24px));opacity:.08;pointer-events:none}.side h2{font-size:16px;margin:0 0 10px;color:var(--red);letter-spacing:.16em}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.side label{font-size:11px;color:var(--muted);display:block;margin:8px 0 4px}.side input,.side select{width:100%}.unit-list{margin-top:12px;display:flex;flex-direction:column;gap:8px}.unit-card{border:1px solid rgba(255,31,53,.38);background:rgba(0,0,0,.62);padding:9px 42px 9px 10px;font-size:12px;position:relative;cursor:pointer;clip-path:none;box-shadow:none}.unit-card:hover,.unit-card.selected{border-color:var(--white);background:rgba(45,7,11,.82)}.unit-card b{color:var(--white);font-size:13px}.unit-card span{color:var(--muted);line-height:1.45}.unit-card .x{position:absolute;right:8px;top:8px;height:28px;min-width:28px;padding:0;border:1px solid rgba(255,31,53,.8);background:#160609;color:var(--red);clip-path:none;font-size:18px;line-height:1}.unit-card .x:hover{background:var(--red);color:#fff}.shape-help{font-size:11px;color:var(--muted);line-height:1.55;margin:8px 0;border-left:2px solid var(--red);padding-left:8px}.mini{height:30px;font-size:12px;padding:0 8px}.branch-palette{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 10px}.branch-palette button{height:34px;font-size:12px;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.branch-palette button.armed{background:linear-gradient(135deg,var(--red),var(--red2));font-weight:900}.branch-palette button.blocked{opacity:.42}.custom-branch-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin:8px 0}.custom-branch-row input{height:30px;font-size:12px}.custom-branch-row button{height:30px;white-space:nowrap}.disabled-option{opacity:.45}.toast{position:absolute;top:86px;left:50%;transform:translateX(-50%);background:#050505;border:1px solid var(--red);color:var(--white);padding:10px 16px;box-shadow:0 0 22px rgba(255,31,53,.28);z-index:20;display:none}.toast.show{display:block}
-  .brush-panel{position:absolute;left:300px;top:134px;z-index:8;display:none;gap:12px;align-items:center;padding:10px 12px;border:1px solid rgba(255,31,53,.55);background:linear-gradient(135deg,rgba(5,5,5,.94),rgba(35,6,9,.92));box-shadow:0 0 24px rgba(255,31,53,.18);clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}.brush-panel.open{display:flex}.brush-panel label{font-size:11px;color:var(--muted);letter-spacing:.12em}.brush-panel .panel-title{font-size:12px;font-weight:900;color:var(--red);letter-spacing:.16em}.brush-panel input[type="range"]{width:150px}.brush-panel .color-wrap{display:flex;align-items:center;gap:8px}.brush-panel.eraser .color-wrap{display:none}.brush-panel .width-value{min-width:34px;text-align:right;font-size:12px;color:var(--white)}.arrow-label-tools{display:none;align-items:center;gap:8px;border-left:1px solid rgba(255,31,53,.36);padding-left:10px}.brush-panel.arrow-mode .arrow-label-tools{display:flex}.arrow-label-tools input{height:30px;width:190px;clip-path:none}.arrow-label-tools button{height:30px;padding:0 8px;font-size:12px;clip-path:none}
+  .brush-panel{position:absolute;left:300px;top:134px;z-index:8;display:none;gap:12px;align-items:center;padding:10px 12px;border:1px solid rgba(255,31,53,.55);background:linear-gradient(135deg,rgba(5,5,5,.94),rgba(35,6,9,.92));box-shadow:0 0 24px rgba(255,31,53,.18);clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}.brush-panel.open{display:flex}.brush-panel label{font-size:11px;color:var(--muted);letter-spacing:.12em}.brush-panel .panel-title{font-size:12px;font-weight:900;color:var(--red);letter-spacing:.16em}.brush-panel input[type="range"]{width:150px}.brush-panel .color-wrap{display:flex;align-items:center;gap:8px}.brush-panel.eraser .color-wrap{display:none}.brush-panel .width-value{min-width:34px;text-align:right;font-size:12px;color:var(--white)}.arrow-label-tools{display:none;align-items:center;gap:8px;border-left:1px solid rgba(255,31,53,.36);padding-left:10px}.brush-panel.arrow-mode .arrow-label-tools{display:flex}.arrow-label-tools input{height:30px;width:190px;clip-path:none}.arrow-label-tools select{height:30px;width:110px;clip-path:none;padding:0 6px;font-size:12px}.arrow-label-tools button{height:30px;padding:0 8px;font-size:12px;clip-path:none}
 
 .arrow-help{font-size:11px;color:var(--muted);line-height:1.45;margin-left:6px}
 
@@ -82,10 +82,10 @@
   .brush-panel .panel-title{width:100%;font-size:13px;}
   .brush-panel input[type="range"]{flex:1;min-width:150px;width:auto;}
   .brush-panel input[type="color"]{width:56px;height:44px;padding:2px;}
-  .arrow-label-tools{width:100%;display:none;grid-template-columns:1fr 72px 88px 88px;gap:6px;border-left:0;border-top:1px solid rgba(255,31,53,.36);padding:9px 0 0;}
+  .arrow-label-tools{width:100%;display:none;grid-template-columns:1fr 96px 66px 82px 82px;gap:6px;border-left:0;border-top:1px solid rgba(255,31,53,.36);padding:9px 0 0;}
   .brush-panel.arrow-mode .arrow-label-tools{display:grid;}
   .arrow-label-tools label{grid-column:1/-1;}
-  .arrow-label-tools input{width:100%;min-width:0;height:42px;}
+  .arrow-label-tools input{width:100%;min-width:0;height:42px;}.arrow-label-tools select{width:100%;height:42px;min-height:42px;font-size:11px;padding:0 4px;}
   .arrow-label-tools button{height:42px;min-height:42px;font-size:11px;padding:0 5px;}
 
   .side{
@@ -117,7 +117,7 @@
   .toolbar{gap:5px;padding:7px 7px calc(7px + env(safe-area-inset-bottom));}
   .toolbar button,.toolbar .file-label{height:44px;min-height:44px;font-size:11px;padding:0 4px;}
   #resetViewBtn,#undoBtn,#panBtn,#drawBtn,#eraseBtn,#arrowBtn,#forceBtn{flex:1 1 calc(33.333% - 5px);}
-  .arrow-label-tools{grid-template-columns:1fr 64px 78px 78px;gap:5px;}
+  .arrow-label-tools{grid-template-columns:1fr 76px 56px 70px 70px;gap:5px;}
   .arrow-label-tools button{font-size:10px;}
 }
 
@@ -125,12 +125,12 @@
 </head>
 <body>
 <div class="app"><header><div class="brand"><div class="main">HΣΛTWΔRΞ</div><div class="sub">전략작전지도 시스템</div></div><div class="planet-tabs"><button class="active" data-planet="EARTH">지구</button><button data-planet="MARS">화성</button><button data-planet="LUNA">달</button></div></header>
-<div class="toolbar"><button id="loadPresetBtn" class="file-label" type="button">🗺 HΣΛTWΔRΞ 지도</button><label class="file-label" for="fileInput">📂 지도 업로드</label><input id="fileInput" type="file" accept="image/*" /><div class="tool"><button id="panBtn" class="active">✋ 이동</button><button id="drawBtn" class="icon-btn" title="그리기"><span aria-hidden="true">✎</span><span class="label">그리기</span></button><button id="eraseBtn" class="icon-btn" title="지우개"><span aria-hidden="true">⌫</span><span class="label">지우개</span></button><button id="arrowBtn" class="icon-btn" title="작전 화살표"><span aria-hidden="true">➤</span><span class="label">작전화살표</span></button><button id="forceBtn">⚔ 부대 관리 ▼</button></div><div class="tool"><button id="undoBtn">↶ 되돌리기</button><button id="clearBtn">🗑 작전초기화</button><button id="clearUnitsBtn" style="display:none">부대 초기화</button><button id="resetViewBtn">◎ 화면맞춤</button><button id="saveBtn">💾 이미지저장</button></div><div class="spacer"></div><div class="status" id="status">지도 없음 / 배율 100% / 행성 지구</div></div><div id="brushPanel" class="brush-panel"><span id="brushTitle" class="panel-title">그리기 설정</span><div class="color-wrap"><label>색상</label><input id="colorPicker" type="color" value="#ff1f35" /></div><label id="widthLabel">굵기</label><input id="sizePicker" type="range" min="1" max="40" value="5" /><span id="widthValue" class="width-value">5</span><div id="arrowLabelTools" class="arrow-label-tools"><label>글씨</label><input id="arrowLabelInput" type="text" placeholder="작전명/메모 입력"><button id="applyArrowLabelBtn" type="button">적용</button><button id="clearArrowLabelBtn" type="button">글씨 지우기</button><button id="deleteArrowBtn" type="button">화살표 삭제</button></div></div>
+<div class="toolbar"><button id="loadPresetBtn" class="file-label" type="button">🗺 HΣΛTWΔRΞ 지도</button><label class="file-label" for="fileInput">📂 지도 업로드</label><input id="fileInput" type="file" accept="image/*" /><div class="tool"><button id="panBtn" class="active">✋ 이동</button><button id="drawBtn" class="icon-btn" title="그리기"><span aria-hidden="true">✎</span><span class="label">그리기</span></button><button id="eraseBtn" class="icon-btn" title="지우개"><span aria-hidden="true">⌫</span><span class="label">지우개</span></button><button id="arrowBtn" class="icon-btn" title="작전 화살표"><span aria-hidden="true">➤</span><span class="label">작전화살표</span></button><button id="forceBtn">⚔ 부대 관리 ▼</button></div><div class="tool"><button id="undoBtn">↶ 되돌리기</button><button id="clearBtn">🗑 작전초기화</button><button id="clearUnitsBtn" style="display:none">부대 초기화</button><button id="resetViewBtn">◎ 화면맞춤</button><button id="saveBtn">💾 이미지저장</button></div><div class="spacer"></div><div class="status" id="status">지도 없음 / 배율 100% / 행성 지구</div></div><div id="brushPanel" class="brush-panel"><span id="brushTitle" class="panel-title">그리기 설정</span><div class="color-wrap"><label>색상</label><input id="colorPicker" type="color" value="#ff1f35" /></div><label id="widthLabel">굵기</label><input id="sizePicker" type="range" min="1" max="40" value="5" /><span id="widthValue" class="width-value">5</span><div id="arrowLabelTools" class="arrow-label-tools"><label>글씨</label><input id="arrowLabelInput" type="text" placeholder="작전명/메모 입력"><select id="arrowTextMode" title="글씨 방향"><option value="horizontal" selected>글씨 수평</option><option value="follow">방향 따라가기</option></select><button id="applyArrowLabelBtn" type="button">적용</button><button id="clearArrowLabelBtn" type="button">글씨 지우기</button><button id="deleteArrowBtn" type="button">화살표 삭제</button></div></div>
 <main><div id="stage"><canvas id="mapCanvas"></canvas><canvas id="drawCanvas"></canvas><canvas id="unitCanvas"></canvas></div><aside class="side" id="forcesPanel"><h2>⚔ 부대 관리</h2><div class="grid"><div><label>부대명</label><input id="unitName" type="text" value="제1군단"></div><div><label>병력</label><input id="unitSize" type="text" value="32000"></div></div><label>병과 선택/배치</label><select id="branchSelect"></select><div id="branchPalette" class="branch-palette"></div><div class="grid"><div><label>마커색</label><input id="unitColor" type="color" value="#ff1f35"></div><div><label>세력/소속</label><input id="unitFaction" type="text" value="HΣΛTWΔRΞ"></div></div><div class="custom-branch-row"><input id="customBranchName" type="text" placeholder="커스텀 병과 이름 입력"><button id="addBranchBtn" class="mini" type="button">+ 병과 추가</button></div><div class="grid"><button id="cancelPlaceBtn" class="mini" type="button">배치 취소</button><button id="armSelectedBranchBtn" class="mini" type="button">선택 병과 배치</button></div><div id="placingNote" class="placing-note">병과 버튼을 누르면 계속 배치됩니다. 기존 부대 클릭은 선택만 됩니다.</div><p style="font-size:12px;color:var(--muted);line-height:1.5">병과 버튼 클릭 → 지도 빈 곳에 연속 배치<br>마커 드래그 이동 / 목록 X 또는 우클릭으로 삭제</p><div class="shape-help">마커 형태: 육군계열 □ / 해군 ⬡ / 공군 △ / 우주군 ◎ / 특수부대 ◆</div><button id="updateUnitBtn" style="width:100%;">선택 부대 수정</button><div class="unit-list" id="unitList"></div></aside><div class="empty" id="empty"><div class="empty-card"><h1>HΣΛTWΔRΞ 전략작전지도</h1><p><b>HΣΛTWΔRΞ 지도</b> 버튼을 누르면 선택한 행성의 기본 지도를 불러옵니다.</p><p><b>지도 업로드</b> 버튼을 누르면 사용자 지정 지도를 사용할 수 있습니다.</p><p>부대 배치, 작전화살표, 드로잉 기능으로 자신만의 작전지도를 작성하십시오.</p></div></div><div class="hint">휠: 확대/축소 / 이동: 지도 드래그 / ➤: 드래그로 작전화살표 생성 / 조절점 드래그 / 우클릭 삭제</div><div class="toast" id="toast">해당 행성에서는 사용할 수 없습니다</div></main></div>
 <script>
 (()=>{
 const $=id=>document.getElementById(id); const mapCanvas=$('mapCanvas'),drawCanvas=$('drawCanvas'),unitCanvas=$('unitCanvas'); const mapCtx=mapCanvas.getContext('2d'),drawCtx=drawCanvas.getContext('2d'),unitCtx=unitCanvas.getContext('2d'); const stage=$('stage'),fileInput=$('fileInput'),empty=$('empty'),status=$('status'),toast=$('toast');
-const panBtn=$('panBtn'),drawBtn=$('drawBtn'),eraseBtn=$('eraseBtn'),arrowBtn=$('arrowBtn'),forceBtn=$('forceBtn'),colorPicker=$('colorPicker'),sizePicker=$('sizePicker'),brushPanel=$('brushPanel'),brushTitle=$('brushTitle'),widthLabel=$('widthLabel'),widthValue=$('widthValue'),forcesPanel=$('forcesPanel'),arrowLabelInput=$('arrowLabelInput'),applyArrowLabelBtn=$('applyArrowLabelBtn'),clearArrowLabelBtn=$('clearArrowLabelBtn'),deleteArrowBtn=$('deleteArrowBtn'); const unitName=$('unitName'),unitSize=$('unitSize'),branchSelect=$('branchSelect'),branchPalette=$('branchPalette'),unitColor=$('unitColor'),unitFaction=$('unitFaction'),unitList=$('unitList'),placingNote=$('placingNote'); const planetButtons=document.querySelectorAll('.planet-tabs button');
+const panBtn=$('panBtn'),drawBtn=$('drawBtn'),eraseBtn=$('eraseBtn'),arrowBtn=$('arrowBtn'),forceBtn=$('forceBtn'),colorPicker=$('colorPicker'),sizePicker=$('sizePicker'),brushPanel=$('brushPanel'),brushTitle=$('brushTitle'),widthLabel=$('widthLabel'),widthValue=$('widthValue'),forcesPanel=$('forcesPanel'),arrowLabelInput=$('arrowLabelInput'),applyArrowLabelBtn=$('applyArrowLabelBtn'),clearArrowLabelBtn=$('clearArrowLabelBtn'),deleteArrowBtn=$('deleteArrowBtn'),arrowTextMode=$('arrowTextMode'); const unitName=$('unitName'),unitSize=$('unitSize'),branchSelect=$('branchSelect'),branchPalette=$('branchPalette'),unitColor=$('unitColor'),unitFaction=$('unitFaction'),unitList=$('unitList'),placingNote=$('placingNote'); const planetButtons=document.querySelectorAll('.planet-tabs button');
 const MAP_FILES={EARTH:'maps/earth.png',MARS:'maps/mars.png',LUNA:'maps/luna.png'};
 let img=null,planet='EARTH',mode='pan',scale=1,offsetX=0,offsetY=0,isPanning=false,isDrawing=false,isCreatingArrow=false,lastX=0,lastY=0,panStartX=0,panStartY=0,savedStrokes=[],arrows=[],tempArrow=null,selectedArrowId=null,draggingArrowHandle=null,draggingArrowBody=null,arrowDragLast=null,units=[],selectedUnitId=null,armedBranch=null,draggingUnitId=null,dragMoved=false,forcesOpen=true;
 // 모바일 핀치 줌/터치 이동 상태
@@ -176,6 +176,7 @@ function updateBrushPanel(){
     const a=getSelectedArrow();
     arrowLabelInput.value=a?(a.label||''):arrowLabelInput.value;
     arrowLabelInput.placeholder=a?'선택 화살표 글씨':'새 화살표 글씨';
+    if(arrowTextMode && a) arrowTextMode.value=a.textMode||'horizontal';
   }
 }
 
@@ -198,6 +199,7 @@ function syncArrowControlsFromSelection(){
   sizePicker.max='90';
   sizePicker.value=String(Math.max(8,Math.min(90,Number(a.width)||28)));
   widthValue.textContent=sizePicker.value;
+  if(arrowTextMode) arrowTextMode.value=a.textMode||'horizontal';
   updateBrushPanel();
 }
 function arrowScreenWidth(a){
@@ -273,7 +275,13 @@ function drawArrowObj(ctx,a,selected=false){
   ctx.beginPath(); ctx.moveTo(right[0].x,right[0].y); for(const pt of right.slice(1))ctx.lineTo(pt.x,pt.y); ctx.stroke();
 
   if(a.label){
-    const mid=qPoint(p,.50), tg=qTangent(p,.50); const ang=Math.atan2(tg.y,tg.x);
+    const mid=qPoint(p,.50), tg=qTangent(p,.50);
+    let ang=0;
+    if((a.textMode||'horizontal')==='follow'){
+      ang=Math.atan2(tg.y,tg.x);
+      // 글씨가 뒤집혀 보이는 각도면 글씨만 180도 돌려서 정상 방향으로 보이게 한다.
+      if(ang>Math.PI/2 || ang<-Math.PI/2) ang+=Math.PI;
+    }
     ctx.save(); ctx.translate(mid.x,mid.y); ctx.rotate(ang);
     ctx.font=`900 ${Math.max(12,Math.min(18,bodyW*.42))}px Segoe UI, Arial`;
     ctx.textAlign='center'; ctx.textBaseline='middle';
@@ -557,7 +565,7 @@ stage.addEventListener('mousedown',e=>{
   if(mode==='arrow'){
     // 빈 공간 드래그로 새 화살표 생성
     const mp=screenToMap(pos.x,pos.y);
-    tempArrow={id:String(Date.now())+'_'+Math.random().toString(16).slice(2),start:mp,ctrl:{x:mp.x,y:mp.y},end:{x:mp.x,y:mp.y},color:colorPicker.value,width:Number(sizePicker.value)||28,label:''};
+    tempArrow={id:String(Date.now())+'_'+Math.random().toString(16).slice(2),start:mp,ctrl:{x:mp.x,y:mp.y},end:{x:mp.x,y:mp.y},color:colorPicker.value,width:Number(sizePicker.value)||28,label:'',textMode:(arrowTextMode?arrowTextMode.value:'horizontal')};
     isCreatingArrow=true;
     selectedArrowId=null;
     updateBrushPanel();
@@ -660,7 +668,7 @@ function handleStagePointerDown(e){
 
   if(mode==='arrow'){
     const mp=screenToMap(pos.x,pos.y);
-    tempArrow={id:String(Date.now())+'_'+Math.random().toString(16).slice(2),start:mp,ctrl:{x:mp.x,y:mp.y},end:{x:mp.x,y:mp.y},color:colorPicker.value,width:Number(sizePicker.value)||28,label:''};
+    tempArrow={id:String(Date.now())+'_'+Math.random().toString(16).slice(2),start:mp,ctrl:{x:mp.x,y:mp.y},end:{x:mp.x,y:mp.y},color:colorPicker.value,width:Number(sizePicker.value)||28,label:'',textMode:(arrowTextMode?arrowTextMode.value:'horizontal')};
     isCreatingArrow=true;
     selectedArrowId=null;
     updateBrushPanel();
@@ -844,6 +852,7 @@ function applyArrowLabel(){
   const a=getSelectedArrow();
   if(!a){showToast('수정할 화살표를 먼저 선택하세요');return;}
   a.label=(arrowLabelInput&&arrowLabelInput.value?arrowLabelInput.value:'').trim();
+  if(arrowTextMode) a.textMode=arrowTextMode.value;
   redrawStrokes();
 }
 if(arrowLabelInput){
@@ -851,6 +860,11 @@ if(arrowLabelInput){
   arrowLabelInput.addEventListener('mousedown',e=>e.stopPropagation(),true);
   arrowLabelInput.addEventListener('input',()=>{ const a=getSelectedArrow(); if(a){a.label=arrowLabelInput.value.trim(); redrawStrokes();} });
   arrowLabelInput.addEventListener('keydown',e=>{ if(e.key==='Enter') applyArrowLabel(); });
+}
+if(arrowTextMode){
+  arrowTextMode.addEventListener('pointerdown',e=>e.stopPropagation(),true);
+  arrowTextMode.addEventListener('mousedown',e=>e.stopPropagation(),true);
+  arrowTextMode.addEventListener('change',()=>{ const a=getSelectedArrow(); if(a){a.textMode=arrowTextMode.value; redrawStrokes();} });
 }
 if(applyArrowLabelBtn) applyArrowLabelBtn.addEventListener('click',applyArrowLabel);
 if(clearArrowLabelBtn) clearArrowLabelBtn.addEventListener('click',()=>{ const a=getSelectedArrow(); if(!a){ if(arrowLabelInput)arrowLabelInput.value=''; return;} a.label=''; if(arrowLabelInput)arrowLabelInput.value=''; redrawStrokes(); });
