@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HΣΛTWΔRΞ 전략작전지도 v25 Mobile UX</title>
+<title>HΣΛTWΔRΞ 전략작전지도 v26 Mobile Stable</title>
 <style>
   :root{--bg:#050505;--panel:#12080acc;--panel2:#1b0b0dcc;--red:#ff1f35;--red2:#9b000f;--white:#f5f1ed;--black:#050505;--text:#f5f1ed;--muted:#b9a5a5;--line:#6f141c;}
   *{box-sizing:border-box; user-select:none;} body{margin:0;overflow:hidden;background:radial-gradient(circle at 18% 8%, rgba(255,31,53,.20), transparent 28%),radial-gradient(circle at 86% 22%, rgba(245,241,237,.08), transparent 24%),linear-gradient(135deg,#030303 0%,#160609 55%,#050505 100%);color:var(--text);font-family:'Segoe UI',Pretendard,Arial,sans-serif;} body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;}
@@ -15,248 +15,118 @@
 
 
 /* 모바일 전용 최적화: PC 화면은 그대로 유지 */
+
+/* v26 모바일 안정화 UI: PC 레이아웃은 유지, 모바일에서만 작동 우선으로 재배치 */
 @media (max-width: 768px){
-  body{overflow:hidden;}
-  .app{height:100dvh;}
+  :root{--mobile-header-h:58px;--mobile-toolbar-h:156px;}
+  html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none;touch-action:none;background:#050505;}
+  body::before{opacity:.25;background-size:24px 24px;}
+  .app{display:block;width:100%;height:100dvh;overflow:hidden;}
   header{
-    height:auto;
-    min-height:64px;
-    padding:10px 12px;
-    gap:8px;
-    align-items:flex-start;
-  }
-  .brand .main{font-size:20px;}
-  .brand .sub{font-size:9px;letter-spacing:.18em;}
-  .planet-tabs{
-    flex-wrap:wrap;
-    justify-content:flex-end;
-    gap:6px;
-  }
-  .planet-tabs button{
-    height:34px;
-    min-width:48px;
-    padding:0 9px;
-    font-size:12px;
-  }
-  .toolbar{
-    min-height:auto;
-    max-height:150px;
-    overflow-y:auto;
-    align-items:flex-start;
-    gap:6px;
-    padding:8px;
-    flex-wrap:wrap;
-  }
-  .toolbar .tool{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-  }
-  button,.file-label,select,input[type="text"],input[type="number"],input[type="range"],input[type="color"]{
-    height:40px;
-    min-height:40px;
-    padding:0 9px;
-    font-size:12px;
-  }
-  .icon-btn{min-width:44px;justify-content:center;}
-  .icon-btn .label{font-size:11px;}
-  .spacer{display:none;}
-  .status{
-    width:100%;
-    font-size:11px;
-    white-space:normal;
-    color:#d8caca;
-  }
-  main{height:calc(100dvh - 214px);}
-  #stage{touch-action:none;}
-  canvas{touch-action:none;}
-  .empty-card{
-    width:min(92vw,520px);
-    padding:20px 16px;
-  }
-  .empty-card h1{
-    font-size:22px;
-    margin-bottom:12px;
-  }
-  .empty-card p{
-    font-size:13px;
-    line-height:1.55;
-  }
-  .hint{
-    left:8px;
-    right:8px;
-    bottom:8px;
-    font-size:11px;
-    padding:7px 8px;
-  }
-  .brush-panel{
-    left:8px;
-    right:8px;
-    top:auto;
-    bottom:58px;
-    width:auto;
-    flex-wrap:wrap;
-    gap:8px;
-    padding:9px;
-  }
-  .brush-panel input[type="range"]{width:120px;}
-  .arrow-label-tools{width:100%;border-left:0;border-top:1px solid rgba(255,31,53,.36);padding:8px 0 0 0;flex-wrap:wrap;}
-  .arrow-label-tools input{flex:1;min-width:160px;}
-  .side{
-    position:fixed;
-    left:0;
-    right:0;
-    top:auto;
-    bottom:0;
-    width:100%;
-    height:46dvh;
-    max-height:46dvh;
-    padding:12px;
-    border-left:0;
-    border-right:0;
-    border-bottom:0;
-    clip-path:none;
-    z-index:30;
-    border-radius:14px 14px 0 0;
-  }
-  .side.closed{
-    transform:translateY(calc(100% + 16px));
-    opacity:.08;
-  }
-  .side h2{font-size:15px;}
-  .branch-palette{grid-template-columns:1fr 1fr;gap:6px;}
-  .branch-palette button{height:36px;font-size:11px;}
-  .unit-card{padding:10px 46px 10px 10px;}
-  .unit-card .x{height:32px;min-width:32px;}
-}
-
-@media (max-width: 420px){
-  header{flex-direction:column;align-items:stretch;}
-  .planet-tabs{justify-content:flex-start;}
-  .toolbar{max-height:178px;}
-  main{height:calc(100dvh - 270px);}
-  .file-label,#loadPresetBtn,#saveBtn,#clearBtn,#resetViewBtn,#forceBtn{
-    flex:1 1 calc(50% - 6px);
-    justify-content:center;
-    text-align:center;
-  }
-}
-
-
-
-/* v25 모바일 전용 인터페이스 재설계: PC 레이아웃은 건드리지 않음 */
-@media (max-width: 768px){
-  :root{--mobile-dock-h:118px;--mobile-head-h:60px;}
-  html,body{width:100%;height:100%;overscroll-behavior:none;}
-  body{overflow:hidden;background:#050505;}
-  body::before{opacity:.35;background-size:24px 24px;}
-  .app{height:100dvh;display:flex;flex-direction:column;}
-  header{
-    order:1;height:var(--mobile-head-h);min-height:var(--mobile-head-h);padding:8px 10px;
-    align-items:center;background:linear-gradient(90deg,rgba(5,5,5,.98),rgba(42,4,8,.94));
+    position:fixed;left:0;right:0;top:0;height:var(--mobile-header-h);z-index:80;
+    padding:7px 9px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    background:linear-gradient(90deg,rgba(5,5,5,.98),rgba(40,4,8,.96));
     border-bottom:1px solid rgba(255,31,53,.45);
   }
   .brand .main{font-size:18px;line-height:1;color:var(--red);}
-  .brand .sub{font-size:8px;letter-spacing:.16em;white-space:nowrap;}
+  .brand .sub{font-size:8px;letter-spacing:.14em;white-space:nowrap;}
   .planet-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;min-width:142px;}
-  .planet-tabs button{height:36px;min-width:0;padding:0 6px;font-size:12px;clip-path:none;border-radius:8px;}
-  main{order:2;flex:1;height:auto;min-height:0;padding-bottom:var(--mobile-dock-h);}
-  #stage{inset:0 0 var(--mobile-dock-h) 0;touch-action:none;}
+  .planet-tabs button{height:36px;min-height:36px;min-width:0;padding:0 6px;font-size:12px;border-radius:9px;clip-path:none;}
+
+  main{
+    position:fixed;left:0;right:0;top:var(--mobile-header-h);bottom:var(--mobile-toolbar-h);
+    height:auto;overflow:hidden;z-index:1;background:#050505;
+  }
+  #stage{position:absolute;inset:0;touch-action:none;}
   canvas{touch-action:none;}
-  .toolbar{
-    order:3;position:fixed;left:0;right:0;bottom:0;height:var(--mobile-dock-h);max-height:var(--mobile-dock-h);
-    display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:52px;gap:6px;
-    padding:8px 8px calc(8px + env(safe-area-inset-bottom));overflow:visible;
-    background:linear-gradient(180deg,rgba(28,5,8,.96),rgba(5,5,5,.98));
-    border-top:1px solid rgba(255,31,53,.55);border-bottom:0;box-shadow:0 -12px 32px rgba(0,0,0,.55);z-index:80;
-  }
-  .toolbar .tool{display:contents;}
-  .toolbar .spacer,.toolbar .status{display:none!important;}
-  button,.file-label,select,input[type="text"],input[type="number"],input[type="range"],input[type="color"]{clip-path:none;border-radius:10px;}
-  .toolbar button,.toolbar .file-label{
-    width:100%;height:52px;min-height:52px;display:flex;align-items:center;justify-content:center;text-align:center;
-    padding:0 4px;font-size:11px;font-weight:900;line-height:1.15;white-space:normal;letter-spacing:-.02em;
-    border:1px solid rgba(255,31,53,.42);background:rgba(8,8,8,.94);
-  }
-  .toolbar button.active{background:linear-gradient(135deg,var(--red),#74000b);border-color:#fff;color:#fff;box-shadow:0 0 14px rgba(255,31,53,.32);}
-  .toolbar .icon-btn{gap:0;flex-direction:column;min-width:0;}
-  .toolbar .icon-btn span[aria-hidden="true"]{font-size:18px;line-height:1.1;}
-  .toolbar .icon-btn .label{font-size:10px;line-height:1.1;}
-  #loadPresetBtn{order:1;}
-  label[for="fileInput"]{order:2;}
-  #saveBtn{order:3;}
-  #clearBtn{order:4;}
-  #resetViewBtn{order:5;}
-  #panBtn{order:6;}
-  #drawBtn{order:7;}
-  #eraseBtn{order:8;}
-  #arrowBtn{order:9;}
-  #forceBtn{order:10;}
-  #undoBtn{position:fixed;right:10px;top:calc(var(--mobile-head-h) + 8px);z-index:70;width:auto;height:40px;min-height:40px;padding:0 12px;border-radius:999px;background:rgba(5,5,5,.82);box-shadow:0 0 16px rgba(0,0,0,.45);}
-  #clearUnitsBtn{display:none!important;}
   .hint{display:none;}
-  .empty{inset:0 0 var(--mobile-dock-h) 0;padding:12px;}
+  .status,.spacer{display:none!important;}
+
+  .toolbar{
+    position:fixed;left:0;right:0;bottom:0;height:var(--mobile-toolbar-h);z-index:90;
+    min-height:0;max-height:none;overflow-y:auto;overflow-x:hidden;
+    display:flex;flex-wrap:wrap;align-content:flex-start;align-items:stretch;gap:6px;
+    padding:8px 8px calc(8px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(34,5,8,.98),rgba(5,5,5,.99));
+    border-top:1px solid rgba(255,31,53,.60);border-bottom:0;
+    box-shadow:0 -12px 32px rgba(0,0,0,.65);
+  }
+  .toolbar .tool{display:flex;flex-wrap:wrap;gap:6px;width:100%;}
+  button,.file-label,select,input[type="text"],input[type="number"],input[type="range"],input[type="color"]{
+    clip-path:none!important;border-radius:10px;height:44px;min-height:44px;font-size:13px;
+  }
+  .toolbar button,.toolbar .file-label{
+    height:46px;min-height:46px;display:inline-flex;align-items:center;justify-content:center;text-align:center;
+    padding:0 8px;font-size:12px;font-weight:900;line-height:1.1;white-space:normal;letter-spacing:-.02em;
+    border:1px solid rgba(255,31,53,.45);background:rgba(8,8,8,.94);
+  }
+  .toolbar button.active{background:linear-gradient(135deg,var(--red),#77000b);border-color:#fff;color:#fff;box-shadow:0 0 14px rgba(255,31,53,.32);}
+  #loadPresetBtn,.toolbar label[for="fileInput"],#saveBtn,#clearBtn{flex:1 1 calc(50% - 6px);}
+  #resetViewBtn,#undoBtn,#panBtn,#drawBtn,#eraseBtn,#arrowBtn,#forceBtn{flex:1 1 calc(33.333% - 6px);}
+  #clearUnitsBtn{display:none!important;}
+  .icon-btn{min-width:0;gap:4px;}
+  .icon-btn span[aria-hidden="true"]{font-size:18px;}
+  .icon-btn .label{font-size:12px;}
+
+  .empty{inset:0;padding:12px;}
   .empty-card{width:92vw;padding:18px 14px;border-radius:18px;clip-path:none;}
   .empty-card h1{font-size:20px;margin:0 0 12px;}
   .empty-card p{font-size:13px;line-height:1.5;margin:7px 0;}
+
   .brush-panel{
-    position:fixed;left:8px;right:8px;bottom:calc(var(--mobile-dock-h) + 8px);top:auto;width:auto;max-height:40dvh;overflow:auto;
-    display:none;flex-wrap:wrap;gap:9px;padding:12px;border-radius:16px;clip-path:none;z-index:85;
-    background:linear-gradient(135deg,rgba(9,9,9,.98),rgba(47,4,9,.96));box-shadow:0 -8px 28px rgba(0,0,0,.5);
+    position:fixed;left:8px;right:8px;bottom:calc(var(--mobile-toolbar-h) + 8px);top:auto;width:auto;max-height:42dvh;overflow:auto;
+    display:none;flex-wrap:wrap;gap:9px;padding:12px;border-radius:16px;clip-path:none;z-index:95;
+    background:linear-gradient(135deg,rgba(9,9,9,.98),rgba(47,4,9,.96));box-shadow:0 -8px 28px rgba(0,0,0,.55);
   }
   .brush-panel.open{display:flex;}
   .brush-panel .panel-title{width:100%;font-size:13px;}
   .brush-panel input[type="range"]{flex:1;min-width:150px;width:auto;}
-  .brush-panel input[type="color"]{width:54px;height:42px;padding:2px;}
-  .arrow-label-tools{width:100%;display:none;grid-template-columns:1fr 70px 86px 86px;gap:6px;border-top:1px solid rgba(255,31,53,.36);border-left:0;padding:9px 0 0;}
+  .brush-panel input[type="color"]{width:56px;height:44px;padding:2px;}
+  .arrow-label-tools{width:100%;display:none;grid-template-columns:1fr 72px 88px 88px;gap:6px;border-left:0;border-top:1px solid rgba(255,31,53,.36);padding:9px 0 0;}
   .brush-panel.arrow-mode .arrow-label-tools{display:grid;}
   .arrow-label-tools label{grid-column:1/-1;}
   .arrow-label-tools input{width:100%;min-width:0;height:42px;}
-  .arrow-label-tools button{height:42px;font-size:11px;border-radius:9px;}
+  .arrow-label-tools button{height:42px;min-height:42px;font-size:11px;padding:0 5px;}
+
   .side{
-    position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;height:min(72dvh,620px);max-height:72dvh;
-    padding:10px 12px calc(var(--mobile-dock-h) + 12px);border-radius:18px 18px 0 0;clip-path:none;z-index:90;
-    border:1px solid rgba(255,31,53,.5);border-bottom:0;background:linear-gradient(180deg,rgba(22,4,7,.98),rgba(5,5,5,.98));
+    position:fixed;left:0;right:0;bottom:var(--mobile-toolbar-h);top:auto;width:100%;height:min(58dvh,560px);max-height:58dvh;
+    padding:12px;border-radius:16px 16px 0 0;clip-path:none;z-index:96;
+    border:1px solid rgba(255,31,53,.52);border-bottom:0;background:linear-gradient(180deg,rgba(22,4,7,.98),rgba(5,5,5,.98));
     box-shadow:0 -12px 40px rgba(0,0,0,.72);overflow:auto;
   }
-  .side.closed{transform:translateY(calc(100% + 20px));opacity:1;pointer-events:none;}
-  .mobile-sheet-handle{display:block;width:54px;height:5px;border-radius:99px;background:rgba(245,241,237,.42);margin:2px auto 10px;}
-  .side h2{font-size:16px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;letter-spacing:.04em;}
-  .mobile-close-sheet{display:inline-flex!important;height:32px;min-height:32px;padding:0 12px;border-radius:999px;clip-path:none;font-size:12px;}
+  .side.closed{transform:translateY(calc(100% + var(--mobile-toolbar-h) + 20px));opacity:1;pointer-events:none;}
+  .side h2{font-size:16px;margin-bottom:10px;letter-spacing:.04em;}
   .grid{grid-template-columns:1fr 1fr;gap:8px;}
   .side input,.side select{height:44px;font-size:14px;border-radius:10px;}
   .branch-palette{grid-template-columns:repeat(3,1fr);gap:7px;}
   .branch-palette button{height:46px;font-size:11px;text-align:center;white-space:normal;line-height:1.15;padding:0 4px;}
-  .custom-branch-row{grid-template-columns:1fr 92px;gap:8px;}
+  .custom-branch-row{grid-template-columns:1fr 94px;gap:8px;}
   .custom-branch-row input,.custom-branch-row button{height:44px;font-size:12px;}
   .mini{height:42px!important;min-height:42px!important;font-size:12px;}
   #updateUnitBtn{height:44px;margin-top:8px;}
   .unit-list{padding-bottom:12px;}
   .unit-card{padding:12px 54px 12px 12px;border-radius:12px;clip-path:none;font-size:13px;}
   .unit-card .x{height:38px;min-width:38px;right:8px;top:8px;border-radius:10px;font-size:20px;}
-  .toast{position:fixed;top:auto;bottom:calc(var(--mobile-dock-h) + 14px);left:12px;right:12px;transform:none;text-align:center;border-radius:12px;z-index:120;}
+  .toast{position:fixed;top:auto;bottom:calc(var(--mobile-toolbar-h) + 14px);left:12px;right:12px;transform:none;text-align:center;border-radius:12px;z-index:120;}
 }
 
 @media (max-width:420px){
-  :root{--mobile-dock-h:112px;--mobile-head-h:56px;}
-  header{flex-direction:row;align-items:center;}
-  .brand .main{font-size:16px;}
-  .brand .sub{display:none;}
-  .planet-tabs{min-width:130px;}
-  .planet-tabs button{font-size:11px;height:34px;}
-  .toolbar{grid-auto-rows:49px;height:var(--mobile-dock-h);max-height:var(--mobile-dock-h);gap:5px;padding:7px 7px calc(7px + env(safe-area-inset-bottom));}
-  .toolbar button,.toolbar .file-label{height:49px;min-height:49px;font-size:10px;border-radius:9px;}
-  .branch-palette{grid-template-columns:repeat(2,1fr);}
-  .arrow-label-tools{grid-template-columns:1fr 1fr;}
-  .arrow-label-tools input{grid-column:1/-1;}
+  :root{--mobile-header-h:56px;--mobile-toolbar-h:168px;}
+  .brand .main{font-size:17px;}
+  .planet-tabs{min-width:132px;}
+  .toolbar{gap:5px;padding:7px 7px calc(7px + env(safe-area-inset-bottom));}
+  .toolbar button,.toolbar .file-label{height:44px;min-height:44px;font-size:11px;padding:0 4px;}
+  #resetViewBtn,#undoBtn,#panBtn,#drawBtn,#eraseBtn,#arrowBtn,#forceBtn{flex:1 1 calc(33.333% - 5px);}
+  .arrow-label-tools{grid-template-columns:1fr 64px 78px 78px;gap:5px;}
+  .arrow-label-tools button{font-size:10px;}
 }
 
 </style>
 </head>
 <body>
 <div class="app"><header><div class="brand"><div class="main">HΣΛTWΔRΞ</div><div class="sub">전략작전지도 시스템</div></div><div class="planet-tabs"><button class="active" data-planet="EARTH">지구</button><button data-planet="MARS">화성</button><button data-planet="LUNA">달</button></div></header>
-<div class="toolbar"><button id="loadPresetBtn" class="file-label mobile-main" type="button" data-mobile-label="기본지도">🗺 HΣΛTWΔRΞ 지도</button><label class="file-label mobile-main" for="fileInput" data-mobile-label="업로드">📂 지도 업로드</label><input id="fileInput" type="file" accept="image/*" /><div class="tool"><button id="panBtn" class="active mobile-tool" data-mobile-label="이동">✋ 이동</button><button id="drawBtn" class="icon-btn mobile-tool" title="그리기" data-mobile-label="그리기"><span aria-hidden="true">✎</span><span class="label">그리기</span></button><button id="eraseBtn" class="icon-btn mobile-tool" title="지우개" data-mobile-label="지우개"><span aria-hidden="true">⌫</span><span class="label">지우개</span></button><button id="arrowBtn" class="icon-btn mobile-tool" title="작전 화살표" data-mobile-label="화살표"><span aria-hidden="true">➤</span><span class="label">작전화살표</span></button><button id="forceBtn" class="mobile-tool" data-mobile-label="부대">⚔ 부대 관리 ▼</button></div><div class="tool"><button id="undoBtn" class="mobile-sub" data-mobile-label="되돌리기">↶ 되돌리기</button><button id="clearBtn" class="mobile-sub" data-mobile-label="초기화">🗑 작전초기화</button><button id="clearUnitsBtn" style="display:none">부대 초기화</button><button id="resetViewBtn" class="mobile-sub" data-mobile-label="화면맞춤">◎ 화면맞춤</button><button id="saveBtn" class="mobile-main" data-mobile-label="저장">💾 이미지저장</button></div><div class="spacer"></div><div class="status" id="status">지도 없음 / 배율 100% / 행성 지구</div></div><div id="brushPanel" class="brush-panel"><span id="brushTitle" class="panel-title">그리기 설정</span><div class="color-wrap"><label>색상</label><input id="colorPicker" type="color" value="#ff1f35" /></div><label id="widthLabel">굵기</label><input id="sizePicker" type="range" min="1" max="40" value="5" /><span id="widthValue" class="width-value">5</span><div id="arrowLabelTools" class="arrow-label-tools"><label>글씨</label><input id="arrowLabelInput" type="text" placeholder="작전명/메모 입력"><button id="applyArrowLabelBtn" type="button">적용</button><button id="clearArrowLabelBtn" type="button">글씨 지우기</button><button id="deleteArrowBtn" type="button">화살표 삭제</button></div></div>
-<main><div id="stage"><canvas id="mapCanvas"></canvas><canvas id="drawCanvas"></canvas><canvas id="unitCanvas"></canvas></div><aside class="side" id="forcesPanel"><div class="mobile-sheet-handle"></div><h2>⚔ 부대 관리 <button id="mobileCloseForcesBtn" type="button" class="mobile-close-sheet">닫기</button></h2><div class="grid"><div><label>부대명</label><input id="unitName" type="text" value="제1군단"></div><div><label>병력</label><input id="unitSize" type="text" value="32000"></div></div><label>병과 선택/배치</label><select id="branchSelect"></select><div id="branchPalette" class="branch-palette"></div><div class="grid"><div><label>마커색</label><input id="unitColor" type="color" value="#ff1f35"></div><div><label>세력/소속</label><input id="unitFaction" type="text" value="HΣΛTWΔRΞ"></div></div><div class="custom-branch-row"><input id="customBranchName" type="text" placeholder="커스텀 병과 이름 입력"><button id="addBranchBtn" class="mini" type="button">+ 병과 추가</button></div><div class="grid"><button id="cancelPlaceBtn" class="mini" type="button">배치 취소</button><button id="armSelectedBranchBtn" class="mini" type="button">선택 병과 배치</button></div><div id="placingNote" class="placing-note">병과 버튼을 누르면 계속 배치됩니다. 기존 부대 클릭은 선택만 됩니다.</div><p style="font-size:12px;color:var(--muted);line-height:1.5">병과 버튼 클릭 → 지도 빈 곳에 연속 배치<br>마커 드래그 이동 / 목록 X 또는 우클릭으로 삭제</p><div class="shape-help">마커 형태: 육군계열 □ / 해군 ⬡ / 공군 △ / 우주군 ◎ / 특수부대 ◆</div><button id="updateUnitBtn" style="width:100%;">선택 부대 수정</button><div class="unit-list" id="unitList"></div></aside><div class="empty" id="empty"><div class="empty-card"><h1>HΣΛTWΔRΞ 전략작전지도</h1><p><b>HΣΛTWΔRΞ 지도</b> 버튼을 누르면 선택한 행성의 기본 지도를 불러옵니다.</p><p><b>지도 업로드</b> 버튼을 누르면 사용자 지정 지도를 사용할 수 있습니다.</p><p>부대 배치, 작전화살표, 드로잉 기능으로 자신만의 작전지도를 작성하십시오.</p></div></div><div class="hint">휠: 확대/축소 / 이동: 지도 드래그 / ➤: 드래그로 작전화살표 생성 / 조절점 드래그 / 우클릭 삭제</div><div class="toast" id="toast">해당 행성에서는 사용할 수 없습니다</div></main></div>
+<div class="toolbar"><button id="loadPresetBtn" class="file-label" type="button">🗺 HΣΛTWΔRΞ 지도</button><label class="file-label" for="fileInput">📂 지도 업로드</label><input id="fileInput" type="file" accept="image/*" /><div class="tool"><button id="panBtn" class="active">✋ 이동</button><button id="drawBtn" class="icon-btn" title="그리기"><span aria-hidden="true">✎</span><span class="label">그리기</span></button><button id="eraseBtn" class="icon-btn" title="지우개"><span aria-hidden="true">⌫</span><span class="label">지우개</span></button><button id="arrowBtn" class="icon-btn" title="작전 화살표"><span aria-hidden="true">➤</span><span class="label">작전화살표</span></button><button id="forceBtn">⚔ 부대 관리 ▼</button></div><div class="tool"><button id="undoBtn">↶ 되돌리기</button><button id="clearBtn">🗑 작전초기화</button><button id="clearUnitsBtn" style="display:none">부대 초기화</button><button id="resetViewBtn">◎ 화면맞춤</button><button id="saveBtn">💾 이미지저장</button></div><div class="spacer"></div><div class="status" id="status">지도 없음 / 배율 100% / 행성 지구</div></div><div id="brushPanel" class="brush-panel"><span id="brushTitle" class="panel-title">그리기 설정</span><div class="color-wrap"><label>색상</label><input id="colorPicker" type="color" value="#ff1f35" /></div><label id="widthLabel">굵기</label><input id="sizePicker" type="range" min="1" max="40" value="5" /><span id="widthValue" class="width-value">5</span><div id="arrowLabelTools" class="arrow-label-tools"><label>글씨</label><input id="arrowLabelInput" type="text" placeholder="작전명/메모 입력"><button id="applyArrowLabelBtn" type="button">적용</button><button id="clearArrowLabelBtn" type="button">글씨 지우기</button><button id="deleteArrowBtn" type="button">화살표 삭제</button></div></div>
+<main><div id="stage"><canvas id="mapCanvas"></canvas><canvas id="drawCanvas"></canvas><canvas id="unitCanvas"></canvas></div><aside class="side" id="forcesPanel"><h2>⚔ 부대 관리</h2><div class="grid"><div><label>부대명</label><input id="unitName" type="text" value="제1군단"></div><div><label>병력</label><input id="unitSize" type="text" value="32000"></div></div><label>병과 선택/배치</label><select id="branchSelect"></select><div id="branchPalette" class="branch-palette"></div><div class="grid"><div><label>마커색</label><input id="unitColor" type="color" value="#ff1f35"></div><div><label>세력/소속</label><input id="unitFaction" type="text" value="HΣΛTWΔRΞ"></div></div><div class="custom-branch-row"><input id="customBranchName" type="text" placeholder="커스텀 병과 이름 입력"><button id="addBranchBtn" class="mini" type="button">+ 병과 추가</button></div><div class="grid"><button id="cancelPlaceBtn" class="mini" type="button">배치 취소</button><button id="armSelectedBranchBtn" class="mini" type="button">선택 병과 배치</button></div><div id="placingNote" class="placing-note">병과 버튼을 누르면 계속 배치됩니다. 기존 부대 클릭은 선택만 됩니다.</div><p style="font-size:12px;color:var(--muted);line-height:1.5">병과 버튼 클릭 → 지도 빈 곳에 연속 배치<br>마커 드래그 이동 / 목록 X 또는 우클릭으로 삭제</p><div class="shape-help">마커 형태: 육군계열 □ / 해군 ⬡ / 공군 △ / 우주군 ◎ / 특수부대 ◆</div><button id="updateUnitBtn" style="width:100%;">선택 부대 수정</button><div class="unit-list" id="unitList"></div></aside><div class="empty" id="empty"><div class="empty-card"><h1>HΣΛTWΔRΞ 전략작전지도</h1><p><b>HΣΛTWΔRΞ 지도</b> 버튼을 누르면 선택한 행성의 기본 지도를 불러옵니다.</p><p><b>지도 업로드</b> 버튼을 누르면 사용자 지정 지도를 사용할 수 있습니다.</p><p>부대 배치, 작전화살표, 드로잉 기능으로 자신만의 작전지도를 작성하십시오.</p></div></div><div class="hint">휠: 확대/축소 / 이동: 지도 드래그 / ➤: 드래그로 작전화살표 생성 / 조절점 드래그 / 우클릭 삭제</div><div class="toast" id="toast">해당 행성에서는 사용할 수 없습니다</div></main></div>
 <script>
 (()=>{
 const $=id=>document.getElementById(id); const mapCanvas=$('mapCanvas'),drawCanvas=$('drawCanvas'),unitCanvas=$('unitCanvas'); const mapCtx=mapCanvas.getContext('2d'),drawCtx=drawCanvas.getContext('2d'),unitCtx=unitCanvas.getContext('2d'); const stage=$('stage'),fileInput=$('fileInput'),empty=$('empty'),status=$('status'),toast=$('toast');
